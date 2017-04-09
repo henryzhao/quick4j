@@ -28,7 +28,7 @@
 
 ## How to get/use it
 > 
-* 1、git clone https://github.com/Eliteams/quick4j.git
+* 1、git clone https://github.com/henryzhao/quick4j.git
 * 2、在MySQL中导入 quick4j/src/test/resources/quick4j.sql 脚本
 * 3、更新 quick4j/src/main/resources/application.properties 中 JDBC Global Setting
 * 4、cd quick4j
@@ -45,12 +45,12 @@
 
 
 ## If you have a better suggestion,Please share out,Let's do better.
-> Author ：StarZou  
-> Email  ：starzou@126.com
+> Author ：henryzhao  
+> Email  ：zhaoyuqi54@gmail.com
 
 
 ## License
-> Copyright (c) 2016 StarZou.  
+> Copyright (c) 2017 henryzhao.  
 > Licensed under the MIT license.  
 
 > Welcome to stars, forks, create new pull request.

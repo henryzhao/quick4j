@@ -30,6 +30,11 @@ public class PageController {
     }
 
     /**
+     *
+     */
+    @RequestMapping("/index")
+    public String index(){ return "index"; }
+    /**
      * 404页
      */
     @RequestMapping("/404")

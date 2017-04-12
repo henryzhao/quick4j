@@ -114,14 +114,86 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                         </li>
 
+
+
                         <li class="">
                             <a href="javascript:;">
-                                <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
-                                class="arrow "> </span>
+                                <i class="fa fa-anchor"></i><span class="title"> 订单管理 </span><span
+                                    class="arrow "> </span>
                             </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="javascript:;">
+                                        订单列表
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        收款管理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        退款管理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        电子票管理
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i><span class="title"> 产品管理 </span><span
+                                    class="arrow "> </span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="javascript:;">
+                                        产品列表
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="fa fa-desktop"></i><span class="title"> 统计报表 </span><span
+                                    class="arrow "> </span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="javascript:;">
+                                        按日统计
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        按月统计
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        按年统计
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        退款统计
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
+                                    class="arrow "> </span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="rest/page/index">
                                         用户管理
                                     </a>
                                 </li>
@@ -141,7 +213,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                         <li class="">
                             <a href="javascript:;">
                                 <i class="fa fa-user"></i><span class="title"> 个人中心 </span><span
-                                class="arrow "> </span>
+                                    class="arrow "> </span>
                             </a>
                             <ul class="sub-menu">
                                 <li>
@@ -154,29 +226,28 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                         密码修改
                                     </a>
                                 </li>
-                                
+
                                 <!-- 测试权限控制 -->
                                 <shiro:hasAnyRoles name="super_admin">
                                     <li>
                                         <a href="javascript:;">super_admin 拥有此角色</a>
                                     </li>
                                 </shiro:hasAnyRoles>
-                                
+
                                 <shiro:hasPermission name="user:create">
                                     <li>
                                         <a href="javascript:;">user:create 拥有此权限</a>
                                     </li>
                                 </shiro:hasPermission>
-                                
+
                                 <shiro:hasPermission name="user:update">
                                     <li>
                                         <a href="javascript:;">user:update 拥有此权限</a>
                                     </li>
                                 </shiro:hasPermission>
-     
+
                             </ul>
                         </li>
-
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>

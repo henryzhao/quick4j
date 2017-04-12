@@ -42,7 +42,7 @@
                 <i class="fa fa-bar-chart-o"></i>
             </div>
             <div class="details">
-                <div class="number">12</div>
+                <div class="number">123</div>
             </div>
             <a class="more" href="#"> View more <i class="m-icon-swapright m-icon-white"></i>
             </a>

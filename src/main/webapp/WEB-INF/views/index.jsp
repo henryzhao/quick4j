@@ -165,7 +165,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="/rest/page/chart">
                                         按日统计
                                     </a>
                                 </li>

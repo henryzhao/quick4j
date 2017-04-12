@@ -34,6 +34,12 @@ public class PageController {
      */
     @RequestMapping("/index")
     public String index(){ return "index"; }
+
+    /**
+     *
+     */
+    @RequestMapping("/chart")
+    public String chart(){ return "chart"; }
     /**
      * 404页
      */

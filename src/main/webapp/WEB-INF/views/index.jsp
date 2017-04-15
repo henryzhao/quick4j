@@ -165,7 +165,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/rest/page/chart">
+                                    <a href="/rest/page/chart" id="btn-chart">
                                         按日统计
                                     </a>
                                 </li>
@@ -341,7 +341,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                            <h3 class="page-title" id="index-page-title">Dashboard</h3>
+                            <h3 class="page-title" id="index-page-title">概览</h3>
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
                                     <i class="fa fa-home"></i>
@@ -352,7 +352,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                 </li>
                                 <li>
                                     <a href="javascript:;">
-                                        Dashboard
+                                        概览
                                     </a>
                                 </li>
                             </ul>

@@ -1,11 +1,5 @@
 package com.eliteams.quick4j.web.model;
 
-/**
- * 角色模型
- * 
- * @author StarZou
- * @since 2014年7月17日 下午1:02:25
- **/
 public class Role {
     private Long id;
 
@@ -46,10 +40,4 @@ public class Role {
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
-
-    @Override
-    public String toString() {
-        return "Role [id=" + id + ", roleName=" + roleName + ", roleSign=" + roleSign + ", description=" + description + "]";
-    }
-
 }

@@ -10,7 +10,7 @@
     <div class="content container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="page-title">Charts and Statistics</h2>
+                <h2 class="page-title">日报统计</h2>
             </div>
         </div>
         <div class="row">

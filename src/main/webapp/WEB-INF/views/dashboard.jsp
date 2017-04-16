@@ -42,10 +42,33 @@
                 <i class="fa fa-bar-chart-o"></i>
             </div>
             <div class="details">
-                <div class="number">36</div>
+                <div class="number">员工人数：36</div>
             </div>
-            <a class="more" href="#"> 员工人数：查看更多 <i class="m-icon-swapright m-icon-white"></i>
+            <a class="more" href="#"> 查看更多 <i class="m-icon-swapright m-icon-white"></i>
             </a>
         </div>
     </div>
+</div>
+<div class="row">
+    <!-- BEGIN Portlet PORTLET-->
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption font-dark">
+                <span class="caption-subject bold uppercase">Distance</span>
+                <span class="caption-helper">distance stats...</span>
+            </div>
+            <div class="actions">
+                <a href="#" class="btn btn-circle btn-default btn-sm">
+                    <i class="fa fa-pencil"></i> Edit </a>
+                <a href="#" class="btn btn-circle btn-default btn-sm">
+                    <i class="fa fa-plus"></i> Add </a>
+                <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#">
+                </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div id="CSSAnimationChart" class="CSSAnimationChart"></div>
+        </div>
+    </div>
+    <!-- END PORTLET-->
 </div>

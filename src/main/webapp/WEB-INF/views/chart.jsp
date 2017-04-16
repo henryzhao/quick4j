@@ -6,24 +6,39 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="page-content">
     <div class="content container">
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="page-title">日报统计</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="widget">
-                    <div class="widget-header"> <i class="icon-tasks"></i>
-                        <h3>Bar Line Animated</h3>
+            <!-- BEGIN Portlet PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <span class="caption-subject bold uppercase">Distance</span>
+                        <span class="caption-helper">distance stats...</span>
                     </div>
-                    <div class="widget-content">
-                        <div id="chart1" style="width:100%; height:350px"></div>
+                    <div class="actions">
+                        <a href="#" class="btn btn-circle btn-default btn-sm">
+                            <i class="fa fa-pencil"></i> Edit </a>
+                        <a href="#" class="btn btn-circle btn-default btn-sm">
+                            <i class="fa fa-plus"></i> Add </a>
+                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#">
+                        </a>
                     </div>
                 </div>
+                <div class="portlet-body">
+                    <div id="CSSAnimationChart" class="CSSAnimationChart"></div>
+                </div>
             </div>
+            <!-- END PORTLET-->
         </div>
     </div>
+</div>
+<div>
+    <p>${user.userid}</p>
+    <p>${user.username}</p>
+    <p>${user.openid}</p>
+    <p>${user.password}</p>
+    <p>${user.regtime}</p>
+    <p>${user.birthday}</p>
 </div>

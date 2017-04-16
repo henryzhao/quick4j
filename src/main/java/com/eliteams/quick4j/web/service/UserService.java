@@ -3,6 +3,8 @@ package com.eliteams.quick4j.web.service;
 import com.eliteams.quick4j.core.generic.GenericService;
 import com.eliteams.quick4j.web.model.User;
 
+import java.util.List;
+
 /**
  * 用户 业务 接口
  * 
@@ -26,4 +28,13 @@ public interface UserService extends GenericService<User, Long> {
      * @return
      */
     User selectByUsername(String username);
+
+    @Override
+    User selectById(Long id);
+
+    @Override
+    User selectOne();
+
+    @Override
+    List<User> selectList();
 }

@@ -10,6 +10,8 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +23,7 @@ import com.eliteams.quick4j.web.security.PermissionSign;
 import com.eliteams.quick4j.web.security.RoleSign;
 import com.eliteams.quick4j.web.service.UserService;
 
+
 /**
  * 用户控制器
  * 
@@ -30,6 +33,8 @@ import com.eliteams.quick4j.web.service.UserService;
 @Controller
 @RequestMapping(value = "/user")
 public class UserController {
+
+    private static Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Resource
     private UserService userService;
@@ -100,4 +105,6 @@ public class UserController {
     public String create() {
         return "拥有user:create权限,能访问";
     }
+
+
 }

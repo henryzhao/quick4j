@@ -54,7 +54,7 @@
                         <host>localhost</host>
                     </httpConnector>
                     <scanIntervalSeconds>1</scanIntervalSeconds>
-                    <jettyXml>jetty.xml,jetty-ssl.xml,jetty-https.xml</jettyXml>
+                    <!--<jettyXml>jetty.xml,jetty-ssl.xml,jetty-https.xml</jettyXml>-->
                 </configuration>
             </plugin>
         </plugins>

@@ -43,6 +43,20 @@
                     <skipTests>${skipTests}</skipTests>
                 </configuration>
             </plugin>
+            <!-- jetty plugin-->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.7.v20160115</version>
+                <configuration>
+                    <httpConnector>
+                        <port>8080</port>
+                        <host>localhost</host>
+                    </httpConnector>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                    <jettyXml>jetty.xml,jetty-ssl.xml,jetty-https.xml</jettyXml>
+                </configuration>
+            </plugin>
         </plugins>
 
         <!--配置Maven 对resource文件 过滤 -->

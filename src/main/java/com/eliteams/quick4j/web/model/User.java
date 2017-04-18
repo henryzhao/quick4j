@@ -1,5 +1,7 @@
 package com.eliteams.quick4j.web.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -42,6 +44,7 @@ public class User {
         this.userid = userid;
     }
 
+    @NotEmpty(message = "用户名不能为空")
     public String getUsername() {
         return username;
     }
@@ -106,6 +109,7 @@ public class User {
         this.regtime = regtime;
     }
 
+    @NotEmpty(message = "密码不能为空")
     public String getPassword() {
         return password;
     }
@@ -120,5 +124,22 @@ public class User {
 
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", openid='" + openid + '\'' +
+                ", tel='" + tel + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", vipflag='" + vipflag + '\'' +
+                ", balance=" + balance +
+                ", regtime=" + regtime +
+                ", password='" + password + '\'' +
+                ", state='" + state + '\'' +
+                '}';
     }
 }

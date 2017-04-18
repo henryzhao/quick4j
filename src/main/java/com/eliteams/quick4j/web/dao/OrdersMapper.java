@@ -1,11 +1,12 @@
 package com.eliteams.quick4j.web.dao;
 
+import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.web.model.Orders;
 import com.eliteams.quick4j.web.model.OrdersExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface OrdersMapper {
+public interface OrdersMapper extends GenericDao<Orders, Long>{
     int countByExample(OrdersExample example);
 
     int deleteByExample(OrdersExample example);
@@ -27,4 +28,12 @@ public interface OrdersMapper {
     int updateByPrimaryKeySelective(Orders record);
 
     int updateByPrimaryKey(Orders record);
+
+    /**
+     *通过订单ID来查询订单
+     * @param OrderId
+     * @return
+     */
+    List<Orders> selectOrdersByOrderId(Long OrderId);
+
 }

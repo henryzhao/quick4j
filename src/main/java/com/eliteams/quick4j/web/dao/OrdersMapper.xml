@@ -304,4 +304,10 @@
       orderStatus = #{orderstatus,jdbcType=VARCHAR}
     where orderId = #{orderid,jdbcType=VARCHAR}
   </update>
+  <!-- 通过角色id 查询角色 拥有的权限 -->
+  <select id="selectOrdersByOrderId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT o.* FROM orders o
+    WHERE o.orderId =
+    #{orderid,jdbcType=VARCHAR}
+  </select>
 </mapper>

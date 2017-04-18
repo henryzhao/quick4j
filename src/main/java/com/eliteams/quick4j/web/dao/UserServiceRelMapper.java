@@ -1,12 +1,13 @@
 package com.eliteams.quick4j.web.dao;
 
+import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.web.model.UserServiceRel;
 import com.eliteams.quick4j.web.model.UserServiceRelExample;
 import com.eliteams.quick4j.web.model.UserServiceRelKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface UserServiceRelMapper {
+public interface UserServiceRelMapper extends GenericDao<UserServiceRel, Long> {
     int countByExample(UserServiceRelExample example);
 
     int deleteByExample(UserServiceRelExample example);

@@ -1,11 +1,12 @@
 package com.eliteams.quick4j.web.dao;
 
+import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.web.model.TransSerial;
 import com.eliteams.quick4j.web.model.TransSerialExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface TransSerialMapper {
+public interface TransSerialMapper extends GenericDao<TransSerial, Long> {
     int countByExample(TransSerialExample example);
 
     int deleteByExample(TransSerialExample example);

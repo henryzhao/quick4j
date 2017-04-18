@@ -1,11 +1,12 @@
 package com.eliteams.quick4j.web.dao;
 
+import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.web.model.Service;
 import com.eliteams.quick4j.web.model.ServiceExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface ServiceMapper {
+public interface ServiceMapper extends GenericDao<Service, Long>{
     int countByExample(ServiceExample example);
 
     int deleteByExample(ServiceExample example);

@@ -65,7 +65,9 @@ public class UserController {
                 return "login";
             }
             // 身份验证
-            subject.login(new UsernamePasswordToken(user.getUsername(), user.getPassword()));
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+            token.setRememberMe(true);
+            subject.login(token);
             // 验证成功在Session中保存用户信息
             final User authUserInfo = userService.selectByUsername(user.getUsername());
             request.getSession().setAttribute("userInfo", authUserInfo);

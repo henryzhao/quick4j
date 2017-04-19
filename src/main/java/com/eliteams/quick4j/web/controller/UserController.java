@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +23,10 @@ import com.eliteams.quick4j.web.model.User;
 import com.eliteams.quick4j.web.security.PermissionSign;
 import com.eliteams.quick4j.web.security.RoleSign;
 import com.eliteams.quick4j.web.service.UserService;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -38,6 +43,7 @@ public class UserController {
 
     @Resource
     private UserService userService;
+    private Map<String, User> users = new HashMap<String, User>();
 
     /**
      * 用户登录
@@ -59,7 +65,9 @@ public class UserController {
                 return "login";
             }
             // 身份验证
-            subject.login(new UsernamePasswordToken(user.getUsername(), user.getPassword()));
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+            token.setRememberMe(true);
+            subject.login(token);
             // 验证成功在Session中保存用户信息
             final User authUserInfo = userService.selectByUsername(user.getUsername());
             request.getSession().setAttribute("userInfo", authUserInfo);
@@ -85,6 +93,25 @@ public class UserController {
         subject.logout();
         return "login";
     }
+
+    public String List(Model model){
+        List<User> userList = userService.selectList();
+        model.addAttribute("userList", userList);
+        return "user/list";
+    }
+
+    /**
+     * 修改用户
+     * @param username
+     * @param model
+     * @return
+     */
+//    public String update(@PathVariable String username, Model model){
+//        model.addAttribute();
+//
+//        return "user/update";
+//    }
+
 
     /**
      * 基于角色 标识的权限控制案例

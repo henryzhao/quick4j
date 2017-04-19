@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="utf-8"%>
+
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat blue">
@@ -54,8 +55,8 @@
     <div class="portlet light bordered">
         <div class="portlet-title">
             <div class="caption font-dark">
-                <span class="caption-subject bold uppercase">Distance</span>
-                <span class="caption-helper">distance stats...</span>
+                <span class="caption-subject bold uppercase">近期营销额</span>
+                <span class="caption-helper">展示近几日的营销额</span>
             </div>
             <div class="actions">
                 <a href="#" class="btn btn-circle btn-default btn-sm">
@@ -67,7 +68,7 @@
             </div>
         </div>
         <div class="portlet-body">
-            <div id="CSSAnimationChart" class="CSSAnimationChart"></div>
+            <div id="CSSAnimationChart" class="CSSAnimationChart" style="height: 500px;width: 100%;"></div>
         </div>
     </div>
     <!-- END PORTLET-->

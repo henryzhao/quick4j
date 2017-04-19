@@ -5,6 +5,7 @@ import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.web.dao.OrdersMapper;
 import com.eliteams.quick4j.web.model.Orders;
 import com.eliteams.quick4j.web.service.OrdersService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -12,20 +13,26 @@ import java.util.List;
 /**
  * Created by dell on 2017/4/18.
  */
-public class OrdersServiceImpl extends GenericServiceImpl<Orders, Long> implements OrdersService {
+@Service
+public class OrdersServiceImpl extends GenericServiceImpl<Orders, String> implements OrdersService {
 
     @Resource
     private OrdersMapper ordersMapper;
 
 
     @Override
-    public GenericDao<Orders, Long> getDao() {
+    public GenericDao<Orders, String> getDao() {
         return ordersMapper;
     }
 
     @Override
-    public List<Orders> selectOrdersByOrderId(Long OrderId) {
+    public List<Orders> selectOrdersByOrderId(String OrderId) {
         return ordersMapper.selectOrdersByOrderId(OrderId);
+    }
+
+    @Override
+    public Orders selectByOrderId(String orderId) {
+        return ordersMapper.selectByOrderId(orderId);
     }
 
     @Override
@@ -39,12 +46,12 @@ public class OrdersServiceImpl extends GenericServiceImpl<Orders, Long> implemen
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(String id) {
         return super.delete(id);
     }
 
     @Override
-    public Orders selectById(Long id) {
+    public Orders selectById(String id) {
         return super.selectById(id);
     }
 

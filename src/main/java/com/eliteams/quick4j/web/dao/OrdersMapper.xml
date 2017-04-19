@@ -305,7 +305,14 @@
     where orderId = #{orderid,jdbcType=VARCHAR}
   </update>
   <!-- 通过角色id 查询角色 拥有的权限 -->
-  <select id="selectOrdersByOrderId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectOrdersByOrderId" parameterType="com.eliteams.quick4j.web.model.Orders" resultMap="BaseResultMap">
+    SELECT o.* FROM orders o
+    WHERE o.orderId =
+    #{orderid,jdbcType=VARCHAR}
+  </select>
+
+  <!-- 通过orderId查询order -->
+  <select id="selectByOrderId" parameterType="com.eliteams.quick4j.web.model.Orders" resultMap="BaseResultMap">
     SELECT o.* FROM orders o
     WHERE o.orderId =
     #{orderid,jdbcType=VARCHAR}

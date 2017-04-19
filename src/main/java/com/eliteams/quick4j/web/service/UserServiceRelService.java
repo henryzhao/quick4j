@@ -2,13 +2,15 @@ package com.eliteams.quick4j.web.service;
 
 import com.eliteams.quick4j.core.generic.GenericService;
 import com.eliteams.quick4j.web.model.UserServiceRel;
+import com.eliteams.quick4j.web.model.UserServiceRelExample;
+import com.eliteams.quick4j.web.model.UserServiceRelKey;
 
 import java.util.List;
 
 /**
  * Created by Angel on 2017/4/19.
  */
-public interface UserServiceRelService extends GenericService<UserServiceRel, Long> {
+public interface UserServiceRelService extends GenericService<UserServiceRel, UserServiceRelKey> {
     @Override
     int insert(UserServiceRel userServiceRel);
 
@@ -16,14 +18,16 @@ public interface UserServiceRelService extends GenericService<UserServiceRel, Lo
     int update(UserServiceRel userServiceRel);
 
     @Override
-    int delete(Long id);
+    int delete(UserServiceRelKey id);
 
     @Override
-    UserServiceRel selectById(Long id);
+    UserServiceRel selectById(UserServiceRelKey id);
 
     @Override
     UserServiceRel selectOne();
 
     @Override
     List<UserServiceRel> selectList();
+    
+    List<UserServiceRel> selectByExample(UserServiceRelExample example);   
 }

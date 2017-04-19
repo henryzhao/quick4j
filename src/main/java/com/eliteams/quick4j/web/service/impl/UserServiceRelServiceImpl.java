@@ -4,19 +4,25 @@ import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.web.dao.UserServiceRelMapper;
 import com.eliteams.quick4j.web.model.UserServiceRel;
+import com.eliteams.quick4j.web.model.UserServiceRelExample;
+import com.eliteams.quick4j.web.model.UserServiceRelKey;
 import com.eliteams.quick4j.web.service.UserServiceRelService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Angel on 2017/4/19.
  */
-public class UserServiceRelServiceImpl extends GenericServiceImpl<UserServiceRel, Long> implements UserServiceRelService {
+@Service
+public class UserServiceRelServiceImpl extends GenericServiceImpl<UserServiceRel, UserServiceRelKey> implements UserServiceRelService {
 
+    @Autowired
     private UserServiceRelMapper userServiceRelMapper;
 
     @Override
-    public GenericDao<UserServiceRel, Long> getDao() {
+    public GenericDao<UserServiceRel, UserServiceRelKey> getDao() {
         return userServiceRelMapper;
     }
 
@@ -31,12 +37,12 @@ public class UserServiceRelServiceImpl extends GenericServiceImpl<UserServiceRel
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(UserServiceRelKey id) {
         return super.delete(id);
     }
 
     @Override
-    public UserServiceRel selectById(Long id) {
+    public UserServiceRel selectById(UserServiceRelKey id) {
         return userServiceRelMapper.selectByPrimaryKey(id);
     }
 
@@ -74,4 +80,9 @@ public class UserServiceRelServiceImpl extends GenericServiceImpl<UserServiceRel
     protected void finalize() throws Throwable {
         super.finalize();
     }
+
+	@Override
+	public List<UserServiceRel> selectByExample(UserServiceRelExample example) {
+		return userServiceRelMapper.selectByExample(example);
+	}
 }

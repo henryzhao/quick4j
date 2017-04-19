@@ -415,16 +415,24 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script src="assets/plugins/morris/raphael-min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
-        <script src="assets/scripts/app.js" type="text/javascript"></script>
-        <script type="text/javascript" src="app/js/index.js"></script>
+        
 
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="assets/scripts/metronic.js" type="text/javascript"></script>
         <script src="assets/admin/layout5/scripts/layout.js" type="text/javascript"></script>
         <script src="assets/admin/layout5/scripts/quick-sidebar.js" type="text/javascript"></script>
-        <script src="app/js/chart.js" type="text/javascript"></script>
+        <!-- <script src="app/js/chart.js" type="text/javascript"></script>  -->
         <script src="assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
+        <script src="assets/scripts/app.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+        	var url = "app/js/index.js";
+       		$.ajax({
+       			  url: url,
+       			  dataType: "script"
+       			});
+        </script>
     </body>
 </html>

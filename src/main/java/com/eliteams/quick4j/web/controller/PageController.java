@@ -40,6 +40,13 @@ public class PageController {
      */
     @RequestMapping("/chart")
     public String chart(){ return "chart"; }
+
+    /**
+     *放回订单页面
+     *
+     */
+    @RequestMapping("/order")
+    public String order(){ return "order/order"; }
     /**
      * 404页
      */

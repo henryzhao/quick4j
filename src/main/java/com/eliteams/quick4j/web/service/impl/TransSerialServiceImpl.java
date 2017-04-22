@@ -5,18 +5,23 @@ import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.web.dao.TransSerialMapper;
 import com.eliteams.quick4j.web.model.TransSerial;
 import com.eliteams.quick4j.web.service.TransSerialService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
 /**
  * Created by Angel on 2017/4/19.
  */
-public class TransSerialServiceImpl extends GenericServiceImpl<TransSerial, Long> implements TransSerialService {
+@Service
+public class TransSerialServiceImpl extends GenericServiceImpl<TransSerial, String> implements TransSerialService {
 
+    @Autowired
     private TransSerialMapper transSerialMapper;
 
     @Override
-    public GenericDao<TransSerial, Long> getDao() {
+    public GenericDao<TransSerial, String> getDao() {
         return transSerialMapper;
     }
 
@@ -31,12 +36,12 @@ public class TransSerialServiceImpl extends GenericServiceImpl<TransSerial, Long
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(String id) {
         return super.delete(id);
     }
 
     @Override
-    public TransSerial selectById(Long id) {
+    public TransSerial selectById(String id) {
         return super.selectById(id);
     }
 

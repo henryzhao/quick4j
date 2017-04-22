@@ -6,7 +6,7 @@ import com.eliteams.quick4j.web.model.OrdersExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface OrdersMapper extends GenericDao<Orders, Long>{
+public interface OrdersMapper extends GenericDao<Orders, String>{
     int countByExample(OrdersExample example);
 
     int deleteByExample(OrdersExample example);
@@ -34,6 +34,14 @@ public interface OrdersMapper extends GenericDao<Orders, Long>{
      * @param OrderId
      * @return
      */
-    List<Orders> selectOrdersByOrderId(Long OrderId);
+    List<Orders> selectOrdersByOrderId(String OrderId);
+
+    /**
+     * 根据订单号查询订单
+     *
+     * @param orderId
+     * @return
+     */
+    Orders selectByOrderId(String orderId);
 
 }

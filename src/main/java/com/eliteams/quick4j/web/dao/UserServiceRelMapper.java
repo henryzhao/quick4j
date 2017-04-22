@@ -7,7 +7,7 @@ import com.eliteams.quick4j.web.model.UserServiceRelKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface UserServiceRelMapper extends GenericDao<UserServiceRel, Long> {
+public interface UserServiceRelMapper extends GenericDao<UserServiceRel, UserServiceRelKey> {
     int countByExample(UserServiceRelExample example);
 
     int deleteByExample(UserServiceRelExample example);

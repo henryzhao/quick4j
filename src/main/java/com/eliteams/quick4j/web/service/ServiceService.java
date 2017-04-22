@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Angel on 2017/4/19.
  */
-public interface ServiceService extends GenericService<Service, Long> {
+public interface ServiceService extends GenericService<Service, String> {
     @Override
     int insert(Service service);
 
@@ -16,10 +16,10 @@ public interface ServiceService extends GenericService<Service, Long> {
     int update(Service service);
 
     @Override
-    int delete(Long id);
+    int delete(String id);
 
     @Override
-    Service selectById(Long id);
+    Service selectById(String id);
 
     @Override
     Service selectOne();

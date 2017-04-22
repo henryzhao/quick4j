@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Angel on 2017/4/19.
  */
-public interface TransSerialService extends GenericService<TransSerial, Long> {
+public interface TransSerialService extends GenericService<TransSerial, String> {
     @Override
     int insert(TransSerial transSerial);
 
@@ -16,10 +16,10 @@ public interface TransSerialService extends GenericService<TransSerial, Long> {
     int update(TransSerial transSerial);
 
     @Override
-    int delete(Long id);
+    int delete(String id);
 
     @Override
-    TransSerial selectById(Long id);
+    TransSerial selectById(String id);
 
     @Override
     TransSerial selectOne();

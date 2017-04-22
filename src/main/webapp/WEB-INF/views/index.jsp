@@ -419,8 +419,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script src="assets/plugins/morris/raphael-min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
-        <script src="assets/scripts/app.js" type="text/javascript"></script>
-        <script type="text/javascript" src="app/js/index.js"></script>
+        
 
 
 
@@ -453,5 +452,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         </script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
+        <script src="assets/scripts/app.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+        	var url = "app/js/index.js";
+       		$.ajax({
+       			  url: url,
+       			  dataType: "script"
+       			});
+        </script>
     </body>
 </html>

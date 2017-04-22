@@ -19,10 +19,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.eliteams.quick4j.core.entity.JSONResult;
+import com.eliteams.quick4j.core.entity.resp.LoginResp;
 import com.eliteams.quick4j.web.model.User;
 import com.eliteams.quick4j.web.security.PermissionSign;
 import com.eliteams.quick4j.web.security.RoleSign;
 import com.eliteams.quick4j.web.service.UserService;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -79,6 +83,56 @@ public class UserController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/applogin", method = {RequestMethod.POST})
+    @ResponseBody
+    public JSONResult<LoginResp> appLogin(@Valid User user, BindingResult result, Model model, HttpServletRequest request){
+//    	{    		
+//    		"respCode":"00",
+//    		"respMsg":,
+//    		"data":{
+//    		 status:"0"    	
+//    		}
+//    	}
+    	
+        JSONResult<LoginResp> resp =new JSONResult<LoginResp>();
+        LoginResp data =new LoginResp ();
+        resp.setData(data);
+        resp.setStatusCode(0);
+    	resp.setMessage("登录成功");
+    	resp.setSuccess(true);
+    	resp.getData().setStatus("0");
+    	resp.getData().setUsername(user.getUsername());
+    	try {
+            Subject subject = SecurityUtils.getSubject();
+            // 已登陆则 跳到首页
+            if (subject.isAuthenticated()) {
+                return resp;
+            }
+            if (result.hasErrors()) {
+            	resp.setStatusCode(0);
+            	resp.setMessage("登录失败");
+            	resp.getData().setStatus("1");
+                return resp;
+            }
+            // 身份验证
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+            token.setRememberMe(true);
+            subject.login(token);
+            // 验证成功在Session中保存用户信息
+            final User authUserInfo = userService.selectByUsername(user.getUsername());
+            request.getSession().setAttribute("userInfo", authUserInfo);
+            String sessionId = (String)SecurityUtils.getSubject().getSession().getId();
+        	resp.getData().setToken(sessionId);
+        	
+        } catch (AuthenticationException e) {
+        	resp.setStatusCode(0);
+        	resp.setMessage("登录失败");
+        	resp.getData().setStatus("1");
+            return resp;
+        }
+    	
+        return resp;
+    }
     /**
      * 用户登出
      * 

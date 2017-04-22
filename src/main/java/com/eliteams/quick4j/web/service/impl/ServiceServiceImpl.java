@@ -5,18 +5,21 @@ import com.eliteams.quick4j.core.generic.GenericServiceImpl;
 import com.eliteams.quick4j.web.dao.ServiceMapper;
 import com.eliteams.quick4j.web.model.Service;
 import com.eliteams.quick4j.web.service.ServiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 /**
  * Created by Angel on 2017/4/19.
  */
-public class ServiceServiceImpl extends GenericServiceImpl<Service, Long> implements ServiceService {
+@ org.springframework.stereotype.Service
+public class ServiceServiceImpl extends GenericServiceImpl<Service, String> implements ServiceService {
 
+    @Autowired
     private ServiceMapper serviceMapper;
 
     @Override
-    public GenericDao<Service, Long> getDao() {
+    public GenericDao<Service, String> getDao() {
         return serviceMapper;
     }
 
@@ -31,12 +34,12 @@ public class ServiceServiceImpl extends GenericServiceImpl<Service, Long> implem
     }
 
     @Override
-    public int delete(Long id) {
+    public int delete(String id) {
         return super.delete(id);
     }
 
     @Override
-    public Service selectById(Long id) {
+    public Service selectById(String id) {
         return serviceMapper.selectByPrimaryKey(id);
     }
 

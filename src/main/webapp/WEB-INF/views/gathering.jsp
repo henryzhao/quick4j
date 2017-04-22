@@ -19,33 +19,75 @@
         <div class="col-md-12">
 
             <!-- Begin: life time stats -->
-            <div class="portlet light portlet-fit portlet-datatable bordered" style="width: 50%">
+            <div class="portlet light portlet-fit portlet-datatable bordered">
 
                 <div class="portlet-body">
                     <div class="table-container">
 
-                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders" width="50%">
+                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
                             <thead>
-                            <tr role="row" class="heading" >
-                                <th width="1%">
+                            <tr role="row" class="heading">
+                                <th width="2%">
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                         <input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" />
                                         <span></span>
                                     </label>
                                 </th>
-                                <th width="2%"> 用户编号&nbsp; </th>
-                                <th width="3%"> 用户姓名&nbsp; </th>
-
-                                <th width="2%"> 操作 </th>
+                                <th width="5%"> 订单号&nbsp; </th>
+                                <th width="15%"> 购买日期&nbsp; </th>
+                                <th width="10%"> 客户 </th>
+                                <th width="10%"> 手机号&nbsp; </th>
+                                <th width="10%"> 产品ID&nbsp; </th>
+                                <th width="10%"> 销售人员&nbsp; </th>
+                                <th width="10%"> 是否结款 </th>
+                                <th width="10%"> 是否失效 </th>
+                                <th width="10%"> 操作 </th>
                             </tr>
                             <tr role="row" class="filter">
                                 <td> </td>
                                 <td>
                                     <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
                                 <td>
-                                    <input type="text" class="form-control form-filter input-sm" name="order_name">
-                                </td>
+                                    <div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
+                                        <input type="text" class="form-control form-filter input-sm" readonly name="order_date_from" placeholder="From">
+                                        <span class="input-group-btn">
+                                                                            <button class="btn btn-sm default" type="button">
+                                                                                <i class="fa fa-calendar"></i>
+                                                                            </button>
+                                                                        </span>
 
+                                        <input type="text" class="form-control form-filter input-sm" readonly name="order_date_to" placeholder="To">
+                                        <span class="input-group-btn">
+                                                                            <button class="btn btn-sm default" type="button">
+                                                                                <i class="fa fa-calendar"></i>
+                                                                            </button>
+                                                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control form-filter input-sm" name="order_customer_name"> </td>
+                                <td>
+                                    <input type="text" class="form-control form-filter input-sm" name="order_ship_to"> </td>
+                                <td>
+
+                                    <input type="text" class="form-control form-filter input-sm" name="order_base_price_to" /> </td>
+                                <td>
+
+                                    <input type="text" class="form-control form-filter input-sm" name="order_purchase_price_to"  /> </td>
+                                <td>
+                                    <select name="order_status" class="form-control form-filter input-sm">
+                                        <option value="">是</option>
+                                        <option value="pending">否</option>
+
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="order_status" class="form-control form-filter input-sm">
+                                        <option value="">是</option>
+                                        <option value="pending">否</option>
+
+                                    </select>
+                                </td>
                                 <td>
                                     <div class="margin-bottom-5">
                                         <button class="btn btn-sm btn-success filter-submit margin-bottom">
@@ -74,7 +116,7 @@
             <div class="portlet box green">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-cogs"></i>用户列表</div>
+                        <i class="fa fa-cogs"></i>订单列表</div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -92,16 +134,16 @@
                                     <span></span>
                                 </label>
                             </th>
-                            <th width="20%"> 用户编号 </th>
-                            <th> 用户姓名 </th>
-                            <th class="numeric"> openID </th>
-                            <th class="numeric"> 电话 </th>
-                            <th class="numeric"> 性别 </th>
-                            <th class="numeric"> 生日 </th>
-                            <th class="numeric"> 密码 </th>
-                            <th class="numeric"> regtime </th>
-                            <th class="numeric"> 状态 </th>
-                            <th class="numeric"> 操作 </th>
+                            <th width="20%"> 联系方式 </th>
+                            <th> 顾客姓名 </th>
+                            <th class="numeric"> 电子票 </th>
+                            <th class="numeric"> 购买产品（产品ID） </th>
+                            <th class="numeric"> 供应商 </th>
+                            <th class="numeric"> 购买日期 </th>
+                            <th class="numeric"> 消费日期 </th>
+                            <th class="numeric"> 使用状态 </th>
+                            <th class="numeric"> 是否有效 </th>
+                            <th class="numeric"> 验票人 </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -121,8 +163,7 @@
                             <td class="numeric"> $1.39 </td>
                             <td class="numeric"> &nbsp; </td>
                             <td class="numeric"> 9,395 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -140,8 +181,7 @@
                             <td class="numeric"> $1.15 </td>
                             <td class="numeric"> $1.13 </td>
                             <td class="numeric"> 56,431 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -159,8 +199,7 @@
                             <td class="numeric"> $4.05 </td>
                             <td class="numeric"> $4.00 </td>
                             <td class="numeric"> 90,641 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -178,8 +217,7 @@
                             <td class="numeric"> $3.00 </td>
                             <td class="numeric"> $2.96 </td>
                             <td class="numeric"> 862,518 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -197,8 +235,7 @@
                             <td class="numeric"> $1.93 </td>
                             <td class="numeric"> $1.90 </td>
                             <td class="numeric"> 595,701 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -216,8 +253,7 @@
                             <td class="numeric"> $0.77 </td>
                             <td class="numeric"> $0.76 </td>
                             <td class="numeric"> 54,567 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -235,8 +271,7 @@
                             <td class="numeric"> $3.72 </td>
                             <td class="numeric"> $3.68 </td>
                             <td class="numeric"> 191,373 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -254,8 +289,7 @@
                             <td class="numeric"> $0.74 </td>
                             <td class="numeric"> $0.72 </td>
                             <td class="numeric"> 8,602,291 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -273,8 +307,7 @@
                             <td class="numeric"> $7.82 </td>
                             <td class="numeric"> $7.81 </td>
                             <td class="numeric"> 148 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -292,8 +325,7 @@
                             <td class="numeric"> $13.83 </td>
                             <td class="numeric"> $13.67 </td>
                             <td class="numeric"> 846,403 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -311,8 +343,7 @@
                             <td class="numeric"> $3.22 </td>
                             <td class="numeric"> $3.10 </td>
                             <td class="numeric"> 5,416,303 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         </tbody>
                     </table>

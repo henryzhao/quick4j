@@ -82,7 +82,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <!-- 拦截所有/rest/* 的请求,交给DispatcherServlet处理,性能最好 -->
+        <!-- 拦截所有/rest/* 的请求,交给DispatcherServlet处理,性能最好/rest/* -->
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 

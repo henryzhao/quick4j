@@ -3,7 +3,6 @@ package com.eliteams.quick4j.web.controller;
 
 import com.eliteams.quick4j.core.entity.JSONResult;
 import com.eliteams.quick4j.core.entity.Result;
-import com.eliteams.quick4j.core.entity.resp.LoginResp;
 import com.eliteams.quick4j.core.util.RandomUtil;
 import com.eliteams.quick4j.web.model.Orders;
 import com.eliteams.quick4j.web.model.Service;

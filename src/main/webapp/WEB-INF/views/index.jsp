@@ -24,6 +24,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <meta name="MobileOptimized" content="320">
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -33,6 +34,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
         <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
         <link href="assets/plugins/morris/morris.css" rel="stylesheet" type="text/css">
+        <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
+        <link href="assets/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css">
+        <link href="assets/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGIN STYLES -->
         <!-- BEGIN PAGE STYLES -->
         <link href="assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
@@ -46,13 +52,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
-
-        <link href="assets/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
-
         <link href="assets/css/profile.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css"/>
         <!-- END THEME STYLES -->
 
         <link rel="shortcut icon" href="app/img/favicon.ico" />
@@ -386,7 +387,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <!-- BEGIN FOOTER -->
         <div class="footer">
             <div class="footer-inner">
-                2017 &copy; Wuhan University - Quick4j
+                2017 &copy;  - Quick4j
             </div>
             <div class="footer-tools">
                 <span class="go-top"><i class="fa fa-angle-up"></i></span>
@@ -410,7 +411,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
 
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="assets//plugins/amcharts/amcharts/amcharts.js" type="text/javascript" ></script>
+        <script src="assets/plugins/amcharts/amcharts/amcharts.js" type="text/javascript" ></script>
         <script src="assets/plugins/amcharts/amcharts/serial.js" type="text/javascript" ></script>
         <script src="assets/plugins/amcharts/amcharts/themes/light.js" type="text/javascript" ></script>
         <script src="assets/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
@@ -418,8 +419,15 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script src="assets/plugins/morris/morris.min.js" type="text/javascript"></script>
         <script src="assets/plugins/morris/raphael-min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+
+        <script src="assets/plugins/moment.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+        <script src="assets/plugins/clockface/js/clockface.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
-        
+
 
 
 
@@ -428,16 +436,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <%--<script src="assets/scripts/datatable.js" type="text/javascript"></script>--%>
         <%--<script src="assets/plugins/datatables/datatables.min.js" type="text/javascript"></script>--%>
         <%--<script src="assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>--%>
-        <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+
 
         <script src="assets/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
         <script src="assets/scripts/table-datatables-scroller.min.js" type="text/javascript"></script>
 
-        <%--<script src="assets/scripts/bootstrap-datetimepicker.js" type="text/javascript" charset="UTF-8"></script>--%>
-        <%--<script src="assets/scripts/bootstrap-datetimepicker.fr.js" type="text/javascript" charset="UTF-8"></script>--%>
-
-
-        <script src="assets/plugins/moment.min.js" type="text/javascript"></script>
 
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="assets/scripts/metronic.js" type="text/javascript"></script>
@@ -445,11 +448,18 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script src="assets/admin/layout5/scripts/quick-sidebar.js" type="text/javascript"></script>
         <script src="assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
 
-        <script type="text/javascript">
-            $(".form_datetime").datetimepicker({
-                format: "dd MM yyyy - hh:ii"
-            });
-        </script>
+        <%--<script type="text/javascript">--%>
+            <%--$(".form_datetime").datetimepicker({--%>
+                <%--format: 'MM/dd/yyyy hh:mm',--%>
+                <%--language: 'cn',--%>
+                <%--pickDate: true,--%>
+                <%--pickTime: true,--%>
+                <%--hourStep: 1,--%>
+                <%--minuteStep: 15,--%>
+                <%--secondStep: 30,--%>
+                <%--inputMask: true--%>
+            <%--});--%>
+        <%--</script>--%>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
         <script src="assets/scripts/app.js" type="text/javascript"></script>
@@ -461,5 +471,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
        			  dataType: "script"
        			});
         </script>
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="app/js/components-date-time-pickers.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
     </body>
 </html>

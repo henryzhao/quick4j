@@ -1,18 +1,24 @@
 package com.eliteams.quick4j.web.dao;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import com.eliteams.quick4j.core.feature.orm.mybatis.Page;
 import com.eliteams.quick4j.core.generic.GenericDao;
 import com.eliteams.quick4j.web.model.User;
 import com.eliteams.quick4j.web.model.UserExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
-public interface UserMapper extends GenericDao<User, Long>{
+/**
+ * 用户Dao接口
+ * 
+ * @author StarZou
+ * @since 2014年7月5日 上午11:49:57
+ **/
+public interface UserMapper extends GenericDao<User, Long> {
     int countByExample(UserExample example);
 
     int deleteByExample(UserExample example);
 
-    int deleteByPrimaryKey(Long userid);
+    int deleteByPrimaryKey(Long id);
 
     int insert(User record);
 
@@ -20,7 +26,7 @@ public interface UserMapper extends GenericDao<User, Long>{
 
     List<User> selectByExample(UserExample example);
 
-    User selectByPrimaryKey(Long userid);
+    User selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
@@ -32,7 +38,7 @@ public interface UserMapper extends GenericDao<User, Long>{
 
     /**
      * 用户登录验证查询
-     *
+     * 
      * @param record
      * @return
      */
@@ -40,7 +46,7 @@ public interface UserMapper extends GenericDao<User, Long>{
 
     /**
      * 分页条件查询
-     *
+     * 
      * @param page
      * @param example
      * @return

@@ -1,5 +1,11 @@
 package com.eliteams.quick4j.web.model;
 
+/**
+ * 权限模型
+ * 
+ * @author StarZou
+ * @since 2014年7月17日 下午1:02:55
+ **/
 public class Permission {
     private Long id;
 
@@ -40,4 +46,10 @@ public class Permission {
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Permission [id=" + id + ", permissionName=" + permissionName + ", permissionSign=" + permissionSign + ", description=" + description + "]";
+    }
+
 }

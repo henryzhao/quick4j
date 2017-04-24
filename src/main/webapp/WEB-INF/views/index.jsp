@@ -16,7 +16,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <head>
         <base href="<%=basePath%>">
         <meta charset="utf-8" />
-        <title>中山公园后台管理系统</title>
+        <title>Quick4j</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="description" />
@@ -25,18 +25,9 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
         <!-- END GLOBAL MANDATORY STYLES -->
-
-        <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-        <link href="assets/plugins/morris/morris.css" rel="stylesheet" type="text/css">
-        <!-- END PAGE LEVEL PLUGIN STYLES -->
-        <!-- BEGIN PAGE STYLES -->
-        <link href="assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
-        <!-- END PAGE STYLES -->
 
         <!-- BEGIN THEME STYLES -->
         <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css" />
@@ -46,13 +37,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
-
-        <link href="assets/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
-
-        <link href="assets/css/profile.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/components.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css"/>
         <!-- END THEME STYLES -->
 
         <link rel="shortcut icon" href="app/img/favicon.ico" />
@@ -130,82 +114,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                         </li>
 
-
-
-                        <li class="">
-                            <a href="javascript:;">
-                                <i class="fa fa-anchor"></i><span class="title"> 订单管理 </span><span
-                                    class="arrow "> </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="rest/page/order" id="btn-order">
-                                        订单列表
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="rest/page/gathering" id="btn-gathering">
-                                        收款管理
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="rest/page/refund" id="btn-refund">
-                                        退款管理
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="javascript:;">
-                                <i class="fa fa-book"></i><span class="title"> 产品管理 </span><span
-                                    class="arrow "> </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="rest/page/service" id="btn-service">
-                                        产品列表
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="">
-                            <a href="javascript:;">
-                                <i class="fa fa-desktop"></i><span class="title"> 统计报表 </span><span
-                                    class="arrow "> </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="/rest/page/report" id="btn-report">
-                                        按日统计
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/rest/page/month_report" id="btn-month">
-                                        按月统计
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/rest/page/year_report" id="btn-year">
-                                        按年统计
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        退款统计
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="">
                             <a href="javascript:;">
                                 <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
-                                    class="arrow "> </span>
+                                class="arrow "> </span>
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/rest/page/manage" id="btn-manage">
+                                    <a href="javascript:;">
                                         用户管理
                                     </a>
                                 </li>
@@ -225,42 +141,42 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                         <li class="">
                             <a href="javascript:;">
                                 <i class="fa fa-user"></i><span class="title"> 个人中心 </span><span
-                                    class="arrow "> </span>
+                                class="arrow "> </span>
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/rest/page/user" id="btn-user">
-                                        个人信息
+                                    <a href="javascript:;">
+                                        信息修改
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/rest/page/setting" id="btn-setting">
-                                        账户设置
+                                    <a href="javascript:;">
+                                        密码修改
                                     </a>
                                 </li>
-
-
+                                
                                 <!-- 测试权限控制 -->
                                 <shiro:hasAnyRoles name="super_admin">
                                     <li>
                                         <a href="javascript:;">super_admin 拥有此角色</a>
                                     </li>
                                 </shiro:hasAnyRoles>
-
+                                
                                 <shiro:hasPermission name="user:create">
                                     <li>
                                         <a href="javascript:;">user:create 拥有此权限</a>
                                     </li>
                                 </shiro:hasPermission>
-
+                                
                                 <shiro:hasPermission name="user:update">
                                     <li>
                                         <a href="javascript:;">user:update 拥有此权限</a>
                                     </li>
                                 </shiro:hasPermission>
-
+     
                             </ul>
                         </li>
+
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
@@ -354,7 +270,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                            <h3 class="page-title" id="index-page-title">概览</h3>
+                            <h3 class="page-title" id="index-page-title">Dashboard</h3>
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
                                     <i class="fa fa-home"></i>
@@ -365,7 +281,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                 </li>
                                 <li>
                                     <a href="javascript:;">
-                                        概览
+                                        Dashboard
                                     </a>
                                 </li>
                             </ul>
@@ -409,57 +325,9 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
 
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="assets//plugins/amcharts/amcharts/amcharts.js" type="text/javascript" ></script>
-        <script src="assets/plugins/amcharts/amcharts/serial.js" type="text/javascript" ></script>
-        <script src="assets/plugins/amcharts/amcharts/themes/light.js" type="text/javascript" ></script>
-        <script src="assets/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
-        <script src="assets/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
-        <script src="assets/plugins/morris/morris.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/morris/raphael-min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-        <!-- END PAGE LEVEL PLUGINS -->
-        
-
-
-
-        <!-- renqi -->
-
-        <%--<script src="assets/scripts/datatable.js" type="text/javascript"></script>--%>
-        <%--<script src="assets/plugins/datatables/datatables.min.js" type="text/javascript"></script>--%>
-        <%--<script src="assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>--%>
-        <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
-
-        <script src="assets/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
-        <script src="assets/scripts/table-datatables-scroller.min.js" type="text/javascript"></script>
-
-        <%--<script src="assets/scripts/bootstrap-datetimepicker.js" type="text/javascript" charset="UTF-8"></script>--%>
-        <%--<script src="assets/scripts/bootstrap-datetimepicker.fr.js" type="text/javascript" charset="UTF-8"></script>--%>
-
-
-        <script src="assets/plugins/moment.min.js" type="text/javascript"></script>
-
-        <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="assets/scripts/metronic.js" type="text/javascript"></script>
-        <script src="assets/admin/layout5/scripts/layout.js" type="text/javascript"></script>
-        <script src="assets/admin/layout5/scripts/quick-sidebar.js" type="text/javascript"></script>
-        <script src="assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
-
-        <script type="text/javascript">
-            $(".form_datetime").datetimepicker({
-                format: "dd MM yyyy - hh:ii"
-            });
-        </script>
-        <!-- END PAGE LEVEL SCRIPTS -->
-        <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
         <script src="assets/scripts/app.js" type="text/javascript"></script>
-        
-        <script type="text/javascript">
-        	var url = "app/js/index.js";
-       		$.ajax({
-       			  url: url,
-       			  dataType: "script"
-       			});
-        </script>
+        <script type="text/javascript" src="app/js/index.js"></script>
+
+        <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
     </body>
 </html>

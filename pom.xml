@@ -43,18 +43,18 @@
                     <skipTests>${skipTests}</skipTests>
                 </configuration>
             </plugin>
-
-            <!-- 配置Jetty插件 -->
+            <!-- jetty plugin-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty.version}</version>
+                <version>9.3.7.v20160115</version>
                 <configuration>
                     <httpConnector>
                         <port>8080</port>
                         <host>localhost</host>
                     </httpConnector>
                     <scanIntervalSeconds>1</scanIntervalSeconds>
+                    <jettyXml>jetty.xml,jetty-ssl.xml,jetty-https.xml</jettyXml>
                 </configuration>
             </plugin>
         </plugins>
@@ -120,7 +120,6 @@
         <aspectj.version>1.6.12</aspectj.version>
         <netty.version>4.0.18.Final</netty.version>
         <hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
-        <jetty.version>9.3.7.v20160115</jetty.version>
     </properties>
 
     <dependencies>

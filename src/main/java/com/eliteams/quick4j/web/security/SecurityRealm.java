@@ -45,7 +45,7 @@ public class SecurityRealm extends AuthorizingRealm {
         String username = String.valueOf(principals.getPrimaryPrincipal());
 
         final User user = userService.selectByUsername(username);
-        final List<Role> roleInfos = roleService.selectRolesByUserId(user.getId());
+        final List<Role> roleInfos = roleService.selectRolesByUserId(user.getUserid());
         for (Role role : roleInfos) {
             // 添加角色
             System.err.println(role);

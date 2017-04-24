@@ -10,16 +10,28 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.eliteams.quick4j.core.entity.JSONResult;
+import com.eliteams.quick4j.core.entity.resp.LoginResp;
 import com.eliteams.quick4j.web.model.User;
 import com.eliteams.quick4j.web.security.PermissionSign;
 import com.eliteams.quick4j.web.security.RoleSign;
 import com.eliteams.quick4j.web.service.UserService;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * 用户控制器
@@ -31,8 +43,11 @@ import com.eliteams.quick4j.web.service.UserService;
 @RequestMapping(value = "/user")
 public class UserController {
 
+    private static Logger log = LoggerFactory.getLogger(UserController.class);
+
     @Resource
     private UserService userService;
+    private Map<String, User> users = new HashMap<String, User>();
 
     /**
      * 用户登录
@@ -54,7 +69,9 @@ public class UserController {
                 return "login";
             }
             // 身份验证
-            subject.login(new UsernamePasswordToken(user.getUsername(), user.getPassword()));
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+            token.setRememberMe(true);
+            subject.login(token);
             // 验证成功在Session中保存用户信息
             final User authUserInfo = userService.selectByUsername(user.getUsername());
             request.getSession().setAttribute("userInfo", authUserInfo);
@@ -66,6 +83,56 @@ public class UserController {
         return "redirect:/rest/";
     }
 
+    @RequestMapping(value = "/applogin", method = {RequestMethod.POST})
+    @ResponseBody
+    public JSONResult<LoginResp> appLogin(@Valid User user, BindingResult result, Model model, HttpServletRequest request){
+//    	{    		
+//    		"respCode":"00",
+//    		"respMsg":,
+//    		"data":{
+//    		 status:"0"    	
+//    		}
+//    	}
+    	
+        JSONResult<LoginResp> resp =new JSONResult<LoginResp>();
+        LoginResp data =new LoginResp ();
+        resp.setData(data);
+        resp.setStatusCode(0);
+    	resp.setMessage("登录成功");
+    	resp.setSuccess(true);
+    	resp.getData().setStatus("0");
+    	resp.getData().setUsername(user.getUsername());
+    	try {
+            Subject subject = SecurityUtils.getSubject();
+            // 已登陆则 跳到首页
+            if (subject.isAuthenticated()) {
+                return resp;
+            }
+            if (result.hasErrors()) {
+            	resp.setStatusCode(0);
+            	resp.setMessage("登录失败");
+            	resp.getData().setStatus("1");
+                return resp;
+            }
+            // 身份验证
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+            token.setRememberMe(true);
+            subject.login(token);
+            // 验证成功在Session中保存用户信息
+            final User authUserInfo = userService.selectByUsername(user.getUsername());
+            request.getSession().setAttribute("userInfo", authUserInfo);
+            String sessionId = (String)SecurityUtils.getSubject().getSession().getId();
+        	resp.getData().setToken(sessionId);
+        	
+        } catch (AuthenticationException e) {
+        	resp.setStatusCode(0);
+        	resp.setMessage("登录失败");
+        	resp.getData().setStatus("1");
+            return resp;
+        }
+    	
+        return resp;
+    }
     /**
      * 用户登出
      * 
@@ -80,6 +147,25 @@ public class UserController {
         subject.logout();
         return "login";
     }
+
+    public String List(Model model){
+        List<User> userList = userService.selectList();
+        model.addAttribute("userList", userList);
+        return "user/list";
+    }
+
+    /**
+     * 修改用户
+     * @param username
+     * @param model
+     * @return
+     */
+//    public String update(@PathVariable String username, Model model){
+//        model.addAttribute();
+//
+//        return "user/update";
+//    }
+
 
     /**
      * 基于角色 标识的权限控制案例
@@ -100,4 +186,6 @@ public class UserController {
     public String create() {
         return "拥有user:create权限,能访问";
     }
+
+
 }

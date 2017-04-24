@@ -354,7 +354,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                            <h3 class="page-title" id="index-page-title">概览</h3>
+                            <h3 class="page-title" id="index-page-title">中山公园后台管理系统</h3>
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
                                     <i class="fa fa-home"></i>

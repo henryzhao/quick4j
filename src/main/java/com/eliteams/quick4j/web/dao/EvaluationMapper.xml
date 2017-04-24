@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.EvaluationMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.Evaluation" >
+    <id column="evalId" property="evalid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="praise" property="praise" jdbcType="BIGINT" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="orderId" property="orderid" jdbcType="VARCHAR" />
+    <result column="evaluationDatetime" property="evaluationdatetime" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.eliteams.quick4j.web.model.Evaluation" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    evalId, status, praise, userId, orderId, evaluationDatetime
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.eliteams.quick4j.web.model.EvaluationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from evaluation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.EvaluationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from evaluation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from evaluation
+    where evalId = #{evalid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from evaluation
+    where evalId = #{evalid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.EvaluationExample" >
+    delete from evaluation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.Evaluation" >
+    insert into evaluation (evalId, status, praise, 
+      userId, orderId, evaluationDatetime, 
+      content)
+    values (#{evalid,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{praise,jdbcType=BIGINT}, 
+      #{userid,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{evaluationdatetime,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.Evaluation" >
+    insert into evaluation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="evalid != null" >
+        evalId,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="praise != null" >
+        praise,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="orderid != null" >
+        orderId,
+      </if>
+      <if test="evaluationdatetime != null" >
+        evaluationDatetime,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="evalid != null" >
+        #{evalid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="praise != null" >
+        #{praise,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluationdatetime != null" >
+        #{evaluationdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.EvaluationExample" resultType="java.lang.Integer" >
+    select count(*) from evaluation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update evaluation
+    <set >
+      <if test="record.evalid != null" >
+        evalId = #{record.evalid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.praise != null" >
+        praise = #{record.praise,jdbcType=BIGINT},
+      </if>
+      <if test="record.userid != null" >
+        userId = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderid != null" >
+        orderId = #{record.orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.evaluationdatetime != null" >
+        evaluationDatetime = #{record.evaluationdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update evaluation
+    set evalId = #{record.evalid,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      praise = #{record.praise,jdbcType=BIGINT},
+      userId = #{record.userid,jdbcType=VARCHAR},
+      orderId = #{record.orderid,jdbcType=VARCHAR},
+      evaluationDatetime = #{record.evaluationdatetime,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update evaluation
+    set evalId = #{record.evalid,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      praise = #{record.praise,jdbcType=BIGINT},
+      userId = #{record.userid,jdbcType=VARCHAR},
+      orderId = #{record.orderid,jdbcType=VARCHAR},
+      evaluationDatetime = #{record.evaluationdatetime,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.Evaluation" >
+    update evaluation
+    <set >
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="praise != null" >
+        praise = #{praise,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        orderId = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluationdatetime != null" >
+        evaluationDatetime = #{evaluationdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where evalId = #{evalid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.eliteams.quick4j.web.model.Evaluation" >
+    update evaluation
+    set status = #{status,jdbcType=CHAR},
+      praise = #{praise,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=VARCHAR},
+      orderId = #{orderid,jdbcType=VARCHAR},
+      evaluationDatetime = #{evaluationdatetime,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where evalId = #{evalid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.Evaluation" >
+    update evaluation
+    set status = #{status,jdbcType=CHAR},
+      praise = #{praise,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=VARCHAR},
+      orderId = #{orderid,jdbcType=VARCHAR},
+      evaluationDatetime = #{evaluationdatetime,jdbcType=VARCHAR}
+    where evalId = #{evalid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,6 +1,9 @@
 package com.eliteams.quick4j.web.controller;
 
 
+import com.eliteams.quick4j.core.entity.JSONResult;
+import com.eliteams.quick4j.core.entity.Result;
+import com.eliteams.quick4j.core.entity.resp.LoginResp;
 import com.eliteams.quick4j.core.util.RandomUtil;
 import com.eliteams.quick4j.web.model.Orders;
 import com.eliteams.quick4j.web.model.Service;
@@ -50,7 +53,14 @@ public class OrdersController {
 
     @RequestMapping(value = "/dealOrder", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
-    public String dealOrder(@RequestParam String orderId, String userId) throws Exception{
+    public JSONResult<Result> dealOrder(@RequestParam String orderId, String userId) throws Exception{
+        JSONResult<Result> resp =new JSONResult<Result>();
+        Result data =new Result ();
+        resp.setData(data);
+        resp.setStatusCode(200);
+        resp.setMessage("处理成功");
+        resp.setSuccess(true);
+
         Orders orders = ordersService.selectByOrderId(orderId);
         Subject subject = SecurityUtils.getSubject();
         String username = null;
@@ -66,9 +76,13 @@ public class OrdersController {
         example.or().andUseridEqualTo(String.valueOf(user_teller.getUserid()));
         List<UserServiceRel> userServiceRels =  userServiceRelService.selectByExample(example);
         if(userServiceRels == null){
-        	return "暂无权限 ";
+            resp.setMessage("暂无权限");
+        	resp.setSuccess(false);
+        	return resp;
         }else if(userServiceRels.size() >1){
-        	return "不允许该工作人员拥有多个售票权限 ";
+            resp.setMessage("不允许该工作人员拥有多个售票权限");
+            resp.setSuccess(false);
+        	return resp;
         }
         String serviceId = userServiceRels.get(0).getServiceid();
         BigDecimal transAmt = serviceService.selectById(serviceId).getPrice();
@@ -106,7 +120,9 @@ public class OrdersController {
         if ( user_wechat.getBalance().compareTo(transAmt)>=0) {
             user_wechat.setBalance(user_wechat.getBalance().subtract(transAmt));
         } else {
-            return "not sufficient funds";
+            resp.setMessage("余额不足");
+            resp.setSuccess(false);
+            return resp;
         }
         userService.update(user_wechat);
         //5.2向操作人员加钱
@@ -122,11 +138,9 @@ public class OrdersController {
         transSerial_teller.setOrderno(String.valueOf(orderId));
         transSerialService.insert(transSerial_teller);
         user_teller.setBalance(user_teller.getBalance().add(transAmt));
-
         userService.update(user_teller);
 
-
-        return "ok";
+        return resp;
     }
 
 

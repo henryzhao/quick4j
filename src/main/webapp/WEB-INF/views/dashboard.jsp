@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="portlet-body">
-            <div id="CSSAnimationChart" class="CSSAnimationChart" style="height: 500px;width: 100%;"></div>
+            <div id="CSSAnimationChart" class="CSSAnimationChart" style="height:400px;width: 100%;"></div>
         </div>
     </div>
     <!-- END PORTLET-->

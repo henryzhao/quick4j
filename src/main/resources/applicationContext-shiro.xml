@@ -50,7 +50,6 @@
         <!-- cacheManager,集合spring缓存工厂 -->
          <!--<property name="cacheManager" ref="shiroEhcacheManager" />-->
          <!--<property name="sessionManager" ref="sessionManager" />-->
-        <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
 
     <!-- Shiro生命周期处理器 -->

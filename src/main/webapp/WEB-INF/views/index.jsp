@@ -46,6 +46,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+
+        <link href="assets/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+        <link href="assets/css/profile.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/components.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css"/>
         <!-- END THEME STYLES -->
 
         <link rel="shortcut icon" href="app/img/favicon.ico" />
@@ -137,20 +144,16 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="rest/page/gathering" id="btn-gathering">
                                         收款管理
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="rest/page/refund" id="btn-refund">
                                         退款管理
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        电子票管理
-                                    </a>
-                                </li>
+
                             </ul>
                         </li>
                         <li class="">
@@ -160,7 +163,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="rest/page/service" id="btn-service">
                                         产品列表
                                     </a>
                                 </li>
@@ -174,17 +177,17 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/rest/page/chart" id="btn-chart">
+                                    <a href="/rest/page/report" id="btn-report">
                                         按日统计
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="/rest/page/month_report" id="btn-month">
                                         按月统计
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="/rest/page/year_report" id="btn-year">
                                         按年统计
                                     </a>
                                 </li>
@@ -202,7 +205,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="rest/page/index">
+                                    <a href="/rest/page/manage" id="btn-manage">
                                         用户管理
                                     </a>
                                 </li>
@@ -226,15 +229,16 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">
-                                        信息修改
+                                    <a href="/rest/page/user" id="btn-user">
+                                        个人信息
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">
-                                        密码修改
+                                    <a href="/rest/page/setting" id="btn-setting">
+                                        账户设置
                                     </a>
                                 </li>
+
 
                                 <!-- 测试权限控制 -->
                                 <shiro:hasAnyRoles name="super_admin">
@@ -417,12 +421,35 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <!-- END PAGE LEVEL PLUGINS -->
         
 
+
+
+        <!-- renqi -->
+
+        <%--<script src="assets/scripts/datatable.js" type="text/javascript"></script>--%>
+        <%--<script src="assets/plugins/datatables/datatables.min.js" type="text/javascript"></script>--%>
+        <%--<script src="assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>--%>
+        <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+
+        <script src="assets/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
+        <script src="assets/scripts/table-datatables-scroller.min.js" type="text/javascript"></script>
+
+        <%--<script src="assets/scripts/bootstrap-datetimepicker.js" type="text/javascript" charset="UTF-8"></script>--%>
+        <%--<script src="assets/scripts/bootstrap-datetimepicker.fr.js" type="text/javascript" charset="UTF-8"></script>--%>
+
+
+        <script src="assets/plugins/moment.min.js" type="text/javascript"></script>
+
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="assets/scripts/metronic.js" type="text/javascript"></script>
         <script src="assets/admin/layout5/scripts/layout.js" type="text/javascript"></script>
         <script src="assets/admin/layout5/scripts/quick-sidebar.js" type="text/javascript"></script>
-        <!-- <script src="app/js/chart.js" type="text/javascript"></script>  -->
         <script src="assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(".form_datetime").datetimepicker({
+                format: "dd MM yyyy - hh:ii"
+            });
+        </script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
         <script src="assets/scripts/app.js" type="text/javascript"></script>

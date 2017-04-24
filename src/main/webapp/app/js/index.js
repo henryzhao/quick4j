@@ -11,7 +11,7 @@ $(function() {
                 var li = menu.find('li.active').removeClass('active');
 
                 // 添加选中 打开的样式
-                // $(this).addClass('active');
+                 $(this).addClass('active');
             });
         };
 
@@ -265,4 +265,5 @@ $(function() {
 
 
     $('#btn-dashboard').trigger("click");
+    
 });

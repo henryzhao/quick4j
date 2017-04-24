@@ -33,17 +33,31 @@
                                         <span></span>
                                     </label>
                                 </th>
-                                <th width="2%"> 用户编号&nbsp; </th>
-                                <th width="3%"> 用户姓名&nbsp; </th>
+                                <th width="2%"> 报表编号&nbsp; </th>
+                                <th width="3%"> 报表年份&nbsp; </th>
 
-                                <th width="2%"> 操作 </th>
+                                <th width="4%"> 操作 </th>
                             </tr>
                             <tr role="row" class="filter">
                                 <td> </td>
                                 <td>
                                     <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
                                 <td>
-                                    <input type="text" class="form-control form-filter input-sm" name="order_name">
+                                    <div class="input-group input-medium date date-picker" data-date="2012" data-date-format="yyyy" data-date-viewmode="years">
+                                        <input type="text" class="form-control" readonly placeholder="from">
+                                        <span class="input-group-btn">
+                                                                        <button class="btn default" type="button">
+                                                                            <i class="fa fa-calendar"></i>
+                                                                        </button>
+                                                                    </span>
+
+                                        <input type="text" class="form-control" readonly placeholder="to">
+                                        <span class="input-group-btn">
+                                                                        <button class="btn default" type="button">
+                                                                            <i class="fa fa-calendar"></i>
+                                                                        </button>
+                                                                    </span>
+                                    </div>
                                 </td>
 
                                 <td>
@@ -74,7 +88,7 @@
             <div class="portlet box green">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-cogs"></i>用户列表</div>
+                        <i class="fa fa-cogs"></i>订单列表</div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -92,16 +106,16 @@
                                     <span></span>
                                 </label>
                             </th>
-                            <th width="20%"> 用户编号 </th>
-                            <th> 用户姓名 </th>
-                            <th class="numeric"> openID </th>
-                            <th class="numeric"> 电话 </th>
-                            <th class="numeric"> 性别 </th>
-                            <th class="numeric"> 生日 </th>
-                            <th class="numeric"> 密码 </th>
-                            <th class="numeric"> regtime </th>
-                            <th class="numeric"> 状态 </th>
-                            <th class="numeric"> 操作 </th>
+                            <th width="20%"> 报表编号 </th>
+                            <th> 项目名称 </th>
+                            <th class="numeric"> 项目编号 </th>
+                            <th class="numeric"> sepAmount </th>
+                            <th class="numeric"> sepSinglePrice </th>
+                            <th class="numeric"> sepTotalAmt </th>
+                            <th class="numeric"> VIPAmount </th>
+                            <th class="numeric"> VIPSinglePrice </th>
+                            <th class="numeric"> VIPTotalAmt </th>
+                            <th class="numeric"> totalAmt </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -121,8 +135,7 @@
                             <td class="numeric"> $1.39 </td>
                             <td class="numeric"> &nbsp; </td>
                             <td class="numeric"> 9,395 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -140,8 +153,7 @@
                             <td class="numeric"> $1.15 </td>
                             <td class="numeric"> $1.13 </td>
                             <td class="numeric"> 56,431 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -159,8 +171,7 @@
                             <td class="numeric"> $4.05 </td>
                             <td class="numeric"> $4.00 </td>
                             <td class="numeric"> 90,641 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -178,8 +189,7 @@
                             <td class="numeric"> $3.00 </td>
                             <td class="numeric"> $2.96 </td>
                             <td class="numeric"> 862,518 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -197,8 +207,7 @@
                             <td class="numeric"> $1.93 </td>
                             <td class="numeric"> $1.90 </td>
                             <td class="numeric"> 595,701 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -216,8 +225,7 @@
                             <td class="numeric"> $0.77 </td>
                             <td class="numeric"> $0.76 </td>
                             <td class="numeric"> 54,567 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -235,8 +243,7 @@
                             <td class="numeric"> $3.72 </td>
                             <td class="numeric"> $3.68 </td>
                             <td class="numeric"> 191,373 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -254,8 +261,7 @@
                             <td class="numeric"> $0.74 </td>
                             <td class="numeric"> $0.72 </td>
                             <td class="numeric"> 8,602,291 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -273,8 +279,7 @@
                             <td class="numeric"> $7.82 </td>
                             <td class="numeric"> $7.81 </td>
                             <td class="numeric"> 148 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -292,8 +297,7 @@
                             <td class="numeric"> $13.83 </td>
                             <td class="numeric"> $13.67 </td>
                             <td class="numeric"> 846,403 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         <tr>
                             <td>
@@ -311,8 +315,7 @@
                             <td class="numeric"> $3.22 </td>
                             <td class="numeric"> $3.10 </td>
                             <td class="numeric"> 5,416,303 </td>
-                            <td class="numeric"> <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                编辑</button> </td>
+                            <td class="numeric"> renqi </td>
                         </tr>
                         </tbody>
                     </table>

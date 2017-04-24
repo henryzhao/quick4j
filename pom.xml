@@ -43,6 +43,7 @@
                     <skipTests>${skipTests}</skipTests>
                 </configuration>
             </plugin>
+
             <!-- 配置Jetty插件 -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>

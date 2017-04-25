@@ -63,10 +63,6 @@
                                                                             </button>
                                                                         </span>
                                     </div>
-                                    <div class="input-append date form_datetime">
-                                        <input size="16" type="text" value="" readonly>
-                                        <span class="add-on"><i class="fa fa-calendar"></i></span>
-                                    </div>
                                 </td>
                                 <td>
                                     <input type="text" class="form-control form-filter input-sm" name="order_customer_name"> </td>
@@ -1015,5 +1011,23 @@
     </div>
     <!-- END PAGE BASE CONTENT -->
 </div>
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: 'MM/dd/yyyy hh:mm',
+        language: 'cn',
+        pickDate: true,
+        pickTime: true,
+        hourStep: 1,
+        minuteStep: 15,
+        secondStep: 30,
+        inputMask: true
+    });
+    $(".date-picker").datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-3d'
+
+    });
+
+</script>
 </body>
 </html>

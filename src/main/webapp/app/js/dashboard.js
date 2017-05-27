@@ -33,9 +33,9 @@ var _pageSize=500;
 
 var vm = new Vue({
 
-    el:"#refund_table",
+    el:"#books_table",
     data:{
-        orders: '',
+        books: '',
         originOrders:'',
         queryParams: {
             tel:''
@@ -48,30 +48,17 @@ var vm = new Vue({
     methods:{
         search:function(){
             this.queryParams.tel = $("input[name='order_phone']").val().trim();
-            this.orders = newOrders(this.originOrders, this.queryParams);
-        },
-        refund:function (oriOrderid) {
-            this.$http.post('rest/orders/refund_apply?oriOrderId='+oriOrderid).then(function(res) {
-                console.log(res.data);
-                //  alert('c');
-
-                alert("处理成功");
-                $('#btn-refund').trigger("click");
-
-            }).catch(function(err) {
-//                        console.log('fail' + status + "," + request);
-                console.log(err);
-            })
+            this.books = newOrders(this.originOrders, this.queryParams);
         }
     },
     mounted: function() {
         //alert('a');
         this.$nextTick(function () {
             //alert('b');
-            this.$http.get('rest/orders/orders.json?pageNo='+ _pageNo+'&pageSize='+_pageSize).then(function(res) {
+            this.$http.get('rest/books/books.json?pageNo='+ _pageNo+'&pageSize='+_pageSize).then(function(res) {
                 console.log(res.data);
                 //  alert('c');
-                this.orders = res.data;
+                this.books = res.data;
                 this.originOrders = res.data;
 //                        this.$set('json', res.data);
             }).catch(function(err) {
@@ -83,7 +70,7 @@ var vm = new Vue({
 
 
 });
-function newOrders(orders, queryParams){
+function newOrders(books, queryParams){
 
     var newOrders = [];
     if(queryParams.tel===""){

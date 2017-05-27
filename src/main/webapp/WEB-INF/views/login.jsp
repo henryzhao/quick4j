@@ -59,7 +59,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
 	<form class="login-form" action="rest/user/login" method="post">
-		<h3 class="form-title">中山公园后台管理系统</h3>
+		<h3 class="form-title">国际软件学院图书管理系统</h3>
 		<h3 class="form-title">用户登录</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
@@ -72,7 +72,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<label class="control-label visible-ie8 visible-ie9">用户名</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input name="username" id="username" size="25" value="starzou" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" />
+				<input name="username" id="username" size="25" value="issbook" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" />
 			</div>
 		</div>
 		<div class="form-group">

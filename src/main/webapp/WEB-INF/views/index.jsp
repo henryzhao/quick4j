@@ -65,7 +65,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <li class="dropdown user">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <img alt="" src="assets/img/avatar1_small.jpg"/>
-                            <span class="username"> ${userInfo.username } </span>
+                            <span class="username"> 图书管理员 </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu">
@@ -324,7 +324,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
         <script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
-
+        <script src="assets/plugins/vue/vue.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/vue/vue-resource.min.js" type="text/javascript"></script>
         <script src="assets/scripts/app.js" type="text/javascript"></script>
         <script type="text/javascript" src="app/js/index.js"></script>
 

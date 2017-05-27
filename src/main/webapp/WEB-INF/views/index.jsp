@@ -109,73 +109,73 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
                         <li class="start active">
                             <a href="rest/page/dashboard" id="btn-dashboard">
-                                <i class="fa fa-home"></i><span class="title"> 首页 </span><span
+                                <i class="fa fa-home"></i><span class="title"> 图书目录 </span><span
                                 class="selected"> </span>
                             </a>
                         </li>
 
-                        <li class="">
-                            <a href="javascript:;">
-                                <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
-                                class="arrow "> </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="javascript:;">
-                                        用户管理
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        角色管理
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        权限管理
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        <%--<li class="">--%>
+                            <%--<a href="javascript:;">--%>
+                                <%--<i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span--%>
+                                <%--class="arrow "> </span>--%>
+                            <%--</a>--%>
+                            <%--&lt;%&ndash;<ul class="sub-menu">&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;<li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<a href="javascript:;">&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;用户管理&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;<li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<a href="javascript:;">&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;角色管理&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;<li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<a href="javascript:;">&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;权限管理&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+                        <%--</li>--%>
 
-                        <li class="">
-                            <a href="javascript:;">
-                                <i class="fa fa-user"></i><span class="title"> 个人中心 </span><span
-                                class="arrow "> </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="javascript:;">
-                                        信息修改
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        密码修改
-                                    </a>
-                                </li>
-                                
-                                <!-- 测试权限控制 -->
-                                <shiro:hasAnyRoles name="super_admin">
-                                    <li>
-                                        <a href="javascript:;">super_admin 拥有此角色</a>
-                                    </li>
-                                </shiro:hasAnyRoles>
-                                
-                                <shiro:hasPermission name="user:create">
-                                    <li>
-                                        <a href="javascript:;">user:create 拥有此权限</a>
-                                    </li>
-                                </shiro:hasPermission>
-                                
-                                <shiro:hasPermission name="user:update">
-                                    <li>
-                                        <a href="javascript:;">user:update 拥有此权限</a>
-                                    </li>
-                                </shiro:hasPermission>
-     
-                            </ul>
-                        </li>
+                        <%--<li class="">--%>
+                            <%--<a href="javascript:;">--%>
+                                <%--<i class="fa fa-user"></i><span class="title"> 个人中心 </span><span--%>
+                                <%--class="arrow "> </span>--%>
+                            <%--</a>--%>
+                            <%--<ul class="sub-menu">--%>
+                                <%--<li>--%>
+                                    <%--<a href="javascript:;">--%>
+                                        <%--信息修改--%>
+                                    <%--</a>--%>
+                                <%--</li>--%>
+                                <%--<li>--%>
+                                    <%--<a href="javascript:;">--%>
+                                        <%--密码修改--%>
+                                    <%--</a>--%>
+                                <%--</li>--%>
+                                <%----%>
+                                <%--<!-- 测试权限控制 -->--%>
+                                <%--<shiro:hasAnyRoles name="super_admin">--%>
+                                    <%--<li>--%>
+                                        <%--<a href="javascript:;">super_admin 拥有此角色</a>--%>
+                                    <%--</li>--%>
+                                <%--</shiro:hasAnyRoles>--%>
+                                <%----%>
+                                <%--<shiro:hasPermission name="user:create">--%>
+                                    <%--<li>--%>
+                                        <%--<a href="javascript:;">user:create 拥有此权限</a>--%>
+                                    <%--</li>--%>
+                                <%--</shiro:hasPermission>--%>
+                                <%----%>
+                                <%--<shiro:hasPermission name="user:update">--%>
+                                    <%--<li>--%>
+                                        <%--<a href="javascript:;">user:update 拥有此权限</a>--%>
+                                    <%--</li>--%>
+                                <%--</shiro:hasPermission>--%>
+     <%----%>
+                            <%--</ul>--%>
+                        <%--</li>--%>
 
                     </ul>
                     <!-- END SIDEBAR MENU -->
@@ -270,7 +270,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                            <h3 class="page-title" id="index-page-title">Dashboard</h3>
+                            <h3 class="page-title" id="index-page-title">图书目录</h3>
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
                                     <i class="fa fa-home"></i>
@@ -281,7 +281,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                 </li>
                                 <li>
                                     <a href="javascript:;">
-                                        Dashboard
+                                        图书目录
                                     </a>
                                 </li>
                             </ul>

@@ -461,6 +461,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
 <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="assets/plugins/vue/vue.min.js" type="text/javascript"></script>
+<script src="assets/plugins/vue/vue-resource.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>

@@ -5,9 +5,15 @@ import java.math.BigDecimal;
 public class Books {
     private Long id;
 
-    private String name;
+    private String code;
 
-    private String year;
+    private String bookname;
+
+    private String pic;
+
+    private String type;
+
+    private String years;
 
     private BigDecimal price;
 
@@ -23,20 +29,44 @@ public class Books {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCode() {
+        return code;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
     }
 
-    public String getYear() {
-        return year;
+    public String getBookname() {
+        return bookname;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setBookname(String bookname) {
+        this.bookname = bookname == null ? null : bookname.trim();
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic == null ? null : pic.trim();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public String getYears() {
+        return years;
+    }
+
+    public void setYears(String years) {
+        this.years = years == null ? null : years.trim();
     }
 
     public BigDecimal getPrice() {

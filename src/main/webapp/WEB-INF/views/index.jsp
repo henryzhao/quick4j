@@ -113,6 +113,12 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                 class="selected"> </span>
                             </a>
                         </li>
+                        <li class="">
+                            <a href="javascript:;" id="btn-lendbooks">
+                                <i class="fa fa-bookmark"></i><span class="title"> 图书借阅 </span><span
+                                    class="selected"> </span>
+                            </a>
+                        </li>
 
                         <%--<li class="">--%>
                             <%--<a href="javascript:;">--%>
@@ -270,7 +276,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                            <h3 class="page-title" id="index-page-title">图书目录</h3>
+                            <h3 class="page-title" id="index-page-title">武汉大学国际软件学院图书管理系统</h3>
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
                                     <i class="fa fa-home"></i>

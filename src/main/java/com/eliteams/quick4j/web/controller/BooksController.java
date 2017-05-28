@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class BooksController {
      */
     @RequestMapping(value = "/books", method = RequestMethod.POST)
     @ResponseBody
-    public JSONResult<Result> saveBooks(@RequestParam("books")Books books){
+    public JSONResult<Result> saveBooks(@Valid Books books){
 
         JSONResult<Result> resp =new JSONResult<Result>();
         Result data =new Result ();
@@ -46,7 +47,7 @@ public class BooksController {
         resp.setMessage("处理成功");
         resp.setSuccess(true);
 
-         if (books!=null) {
+         if (books.getBookname()!=null) {
              booksService.insert(books);
          }else {
              data.setMessage("处理失败,未检测到图书记录");
@@ -57,6 +58,12 @@ public class BooksController {
     }
 
 
+    /**
+     * 获取书籍的列表
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
     @RequestMapping(value = "/books.json")
     @ResponseBody
     public List<Books> getBooks(@RequestParam("pageNo") int pageNo,@RequestParam("pageSize") int pageSize){
@@ -64,5 +71,17 @@ public class BooksController {
         BooksExample booksExample = new BooksExample();
         List<Books> list  = booksService.selectListByExampleAndPage(page,booksExample);
         return list;
+    }
+
+    /**
+     * 获取书籍总数
+     * @return
+     */
+    @RequestMapping(value = "/number")
+    @ResponseBody
+    public int getCount(){
+        BooksExample booksExample = new BooksExample();
+        int count = booksService.selectByExampe(booksExample).size();
+        return count;
     }
 }

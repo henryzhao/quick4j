@@ -36,6 +36,7 @@ var vm = new Vue({
     el:"#books_table",
     data:{
         books: '',
+        numbers:'',
         originOrders:'',
         queryParams: {
             tel:''
@@ -64,6 +65,10 @@ var vm = new Vue({
             }).catch(function(err) {
 //                        console.log('fail' + status + "," + request);
                 console.log(err);
+            })
+            this.$http.get('rest/books/number').then(function (res) {
+                console.log(res.data);
+                this.numbers = res.data;
             })
         })
     },

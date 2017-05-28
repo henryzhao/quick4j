@@ -30,4 +30,6 @@ public interface BooksService extends GenericService<Books, String>{
     List<Books> selectList();
 
     List<Books> selectListByExampleAndPage(Page<Books> page, BooksExample booksExample);
+
+    List<Books> selectByExampe(BooksExample booksExample);
 }

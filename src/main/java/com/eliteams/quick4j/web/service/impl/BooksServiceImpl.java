@@ -77,6 +77,12 @@ public class BooksServiceImpl extends GenericServiceImpl<Books, String> implemen
     }
 
     @Override
+    public List<Books> selectByExampe(BooksExample booksExample) {
+        return booksMapper.selectByExample(booksExample);
+    }
+
+
+    @Override
     public int hashCode() {
         return super.hashCode();
     }

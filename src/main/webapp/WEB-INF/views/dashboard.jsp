@@ -23,7 +23,7 @@
                     <i class="fa fa-comments"></i>
                 </div>
                 <div class="details">
-                    <div class="number">总数4549本</div>
+                    <div class="number">总数{{ numbers }}本</div>
                 </div>
                 <a class="more" href="#"> View more <i class="m-icon-swapright m-icon-white"></i>
                 </a>
@@ -35,7 +35,7 @@
                     <i class="fa fa-shopping-cart"></i>
                 </div>
                 <div class="details">
-                    <div class="number">新增0本</div>
+                    <div class="number">新增{{ numbers }}本</div>
                 </div>
                 <a class="more" href="#"> View more <i class="m-icon-swapright m-icon-white"></i>
                 </a>
@@ -104,20 +104,65 @@
         <%--</div>--%>
     <%--</div>--%>
 
-<div class="row">
-    <div class="col-md-12">
-        <form method="post" action="rest/books/books">
-            <div class="form-group">
-                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                <label class="control-label visible-ie8 visible-ie9">用户名</label>
-                <div class="input-icon">
-                    <i class="fa fa-user"></i>
-                    <input name="username" id="username" size="25" value="starzou" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" />
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<%--<div class="row" >--%>
+    <%--<div class="col-md-12">--%>
+        <%--<form class="login-form" id="books" name="books" method="post" action="rest/books/books">--%>
+            <%--<div class="form-group">--%>
+                <%--<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->--%>
+                <%--<label class="control-label visible-ie8 visible-ie9">code</label>--%>
+                <%--<div class="input-icon">--%>
+                    <%--<i class="fa fa-user"></i>--%>
+                    <%--<input name="code" id="code" size="25" value="123456789" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="code" />--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+                <%--<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->--%>
+                <%--<label class="control-label visible-ie8 visible-ie9">bookname</label>--%>
+                <%--<div class="input-icon">--%>
+                    <%--<i class="fa fa-user"></i>--%>
+                    <%--<input name="bookname" id="bookname" size="25" value="OC" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="bookname" />--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+                <%--<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->--%>
+                <%--<label class="control-label visible-ie8 visible-ie9">price</label>--%>
+                <%--<div class="input-icon">--%>
+                    <%--<i class="fa fa-user"></i>--%>
+                    <%--<input name="price" id="price" size="25" value="55.00" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="price" />--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+                <%--<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->--%>
+                <%--<label class="control-label visible-ie8 visible-ie9">years</label>--%>
+                <%--<div class="input-icon">--%>
+                    <%--<i class="fa fa-user"></i>--%>
+                    <%--<input name="years" id="years" size="25" value="2010-10-01" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="years" />--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+                <%--<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->--%>
+                <%--<label class="control-label visible-ie8 visible-ie9">pic</label>--%>
+                <%--<div class="input-icon">--%>
+                    <%--<i class="fa fa-user"></i>--%>
+                    <%--<input name="pic" id="pic" size="25" value="02.jpg" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="pic" />--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+                <%--<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->--%>
+                <%--<label class="control-label visible-ie8 visible-ie9">type</label>--%>
+                <%--<div class="input-icon">--%>
+                    <%--<i class="fa fa-user"></i>--%>
+                    <%--<input name="type" id="type" size="25" value="1" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="type" />--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="form-actions">--%>
+                <%--<button id="submitbtn" type="submit" class="btn blue pull-right">--%>
+                    <%--提交 <i class="m-icon-swapright m-icon-white"></i>--%>
+                <%--</button>--%>
+            <%--</div>--%>
+        <%--</form>--%>
+    <%--</div>--%>
+<%--</div>--%>
     <div class="row">
         <div class="col-md-12">
 
@@ -150,11 +195,18 @@
                         <%--<tr v-for="order in orders">--%>
                         <tr v-for="book in books">
                             <td class="numeric"> {{ book.id }} </td>
-                            <td class="numeric"> {{ book.name }} </td>
-                            <td class="numeric"> {{ book.year }} </td>
-                            <td class="numeric"> {{ book.price }} </td>
-                            <td class="numeric"> {{ book.pricereal }} </td>
-                            <td class="numeric"> {{ book.source }} </td>
+                            <td class="numeric"> {{ book.bookname }} </td>
+                            <td class="numeric"> {{ book.years }} </td>
+                            <td class="numeric"> {{ book.price }}元 </td>
+                            <td class="numeric"> {{ book.price }}元 </td>
+                            <%--<td class="numeric">--%>
+                                <%--<label v-if="book.pricereal>0">{{ book.pricereal }}元</label>--%>
+                                <%--<label v-if="book.pricereal<">{{ book.pirce }}元</label>--%>
+                            <%--</td>--%>
+                            <td class="numeric">
+                                <label v-if="book.source!=null">{{ book.source  }}</label>
+                                <label v-if="book.source==null">赠送</label>
+                            </td>
 
                         </tr>
 

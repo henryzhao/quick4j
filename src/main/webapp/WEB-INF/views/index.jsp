@@ -448,18 +448,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script src="assets/admin/layout5/scripts/quick-sidebar.js" type="text/javascript"></script>
         <script src="assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
 
-        <%--<script type="text/javascript">--%>
-            <%--$(".form_datetime").datetimepicker({--%>
-                <%--format: 'MM/dd/yyyy hh:mm',--%>
-                <%--language: 'cn',--%>
-                <%--pickDate: true,--%>
-                <%--pickTime: true,--%>
-                <%--hourStep: 1,--%>
-                <%--minuteStep: 15,--%>
-                <%--secondStep: 30,--%>
-                <%--inputMask: true--%>
-            <%--});--%>
-        <%--</script>--%>
+
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- <script data-main="app/js/main" src="app/lib/requirejs/require.js"></script> -->
         <script src="assets/scripts/app.js" type="text/javascript"></script>
@@ -474,5 +463,23 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="app/js/components-date-time-pickers.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
+        <script type="text/javascript">
+            $(".form_datetime").datetimepicker({
+                format: 'MM/dd/yyyy hh:mm',
+                language: 'cn',
+                pickDate: true,
+                pickTime: true,
+                hourStep: 1,
+                minuteStep: 15,
+                secondStep: 30,
+                inputMask: true
+            });
+            $(".form_meridian_datetime").datetimepicker({
+                format: "dd MM yyyy - HH:ii P",
+                showMeridian: true,
+                autoclose: true,
+                todayBtn: true
+            });
+        </script>
     </body>
 </html>
